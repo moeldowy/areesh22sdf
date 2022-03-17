@@ -1,0 +1,1 @@
+<?php echo "Welcome From PHP server"?>
