@@ -19,6 +19,7 @@ $select =$connection->prepare('SELECT * FROM STUDENTS WHERE id=?');
 $select->execute([$id]);
 $select->setFetchMode(PDO::FETCH_CLASS,'Student');
 $student=$select->fetch();
+
 ?>
 <aside class="profile-card">
 
@@ -26,11 +27,11 @@ $student=$select->fetch();
 
         <!-- here’s the avatar -->
         <a href="http://victory-design.ru/">
-            <img src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" />
+            <img src="img/<?= (!empty($student->image))?$student->image:"noimage.jpg";?>" />
         </a>
 
         <!-- the full name -->
-        <h3><?=$student->full_name;?></h3>
+        <h3><?php echo $student->full_name;?></h3>
 
         <!-- address -->
         <h5><?=$student->address;?></h5>
